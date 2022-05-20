@@ -7,9 +7,14 @@ const Search = () => {
     setSearch(event.target.value)
   }
 
+  const onSubmit = event => {
+    event.preventDefault();
+
+  }
+
   return (
     <div className="searchTodo">
-      <Input inputValue={search} onChangeInput={onChange} />
+      <Input inputValue={search} onChangeInput={onChange} onSubmitInput={onSubmit}/>
     </div>
   )
 
