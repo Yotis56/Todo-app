@@ -6,35 +6,23 @@ import { TodoList } from "./components/TodoList";
 //hooks
 import { useLocalStorage } from './hooks/UseLocalStorage'
 
-const saveTodos = (todos) => {
+
  //cómo usar el hook de useLocalStorage?
-}
+ //puedo dentro del hook, usar a UseState. Creo un estado de todos y la función que modifica eso, y ese es mi return
+ //O sea, retorno el valor actual del estado (La lista de Todos) Y una función que cambie ese estado (no la función normal del estado, una que yo creo)
+
 
 function App() {
 
-  const data = useLocalStorage('search')
+  const [todos, manageTodos] = useLocalStorage()
+  
+  
 
   useEffect( () => {
-    if (data === null){
-     
-    }
+    manageTodos('search')
   }, [])
 
-  
-  const testTodos = [{
-    id: 1,
-    description: 'Lavar la loza',
-    isCompleted: false
-  }, {
-    id: 2,
-    description: 'Sacar al perro',
-    isCompleted: true
-  }]
-
-  window.localStorage.setItem('todos', JSON.stringify(testTodos))
-  const [todos, setTodos] = useState(testTodos)
-  const uncompletedTodos = todos.filter((todo) => !todo.completed).length
-  //const uncompletedTodos = 1
+  const uncompletedTodos = todos? todos.filter((todo) => !todo.completed).length : 0
 
   return (
     <>
@@ -42,7 +30,7 @@ function App() {
         <Counter uncompletedTodos={uncompletedTodos} />
         <Search />
       </Header>
-      <TodoList todos={testTodos} />
+      <TodoList todos={todos} />
     </>
   )
 

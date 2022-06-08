@@ -1,15 +1,37 @@
-const useLocalStorage = ( action, todos = undefined) => {
-    switch (action) {
-        case 'search':
-            const data = localStorage.getItem('todos')
-            return data === null ? data : JSON.parse(data)
-        case 'save':
-            return todos !== undefined ? 
-                'Please send an array of todos':
-                window.localStorage.setItem('todos', todos)
-        default:
-            return 'No action defined. Please define an action'
-    }
+import { useState } from "react"
+
+const useLocalStorage = () => {
+
+    const [data, setData] = useState([])
+    const testTodos = [{
+        id: 1,
+        description: 'Lavar la loza',
+        isCompleted: false
+      }, {
+        id: 2,
+        description: 'Sacar al perro',
+        isCompleted: true
+      }]
+    const changeData = (action, newItem = undefined) => {
+        if (action === 'search'){
+            const todos = JSON.parse(localStorage.getItem('todos'))
+            if (!todos){ 
+                changeData('save', testTodos) 
+            }  
+            setData(todos)
+        } else if (action === 'save' && newItem){
+            const parsedItem = JSON.stringify(newItem)
+            localStorage.setItem('todos', parsedItem)
+            setData(newItem)
+        }
+    }        
+    return [data, changeData]
 }
 
 export { useLocalStorage }
+
+//cuando se ejecuta una acción, se dispara un cambio
+        //Ese cambio ejecuta una función onChange que recibe un evento. Esta función debe identificar qué cambió, 
+        //Debería coger el estado actual de TODOS, modificarlo según sea el caso y enviarlo al hook
+        //EL hook recibe el nuevo elemento y hace dos cosas, lo guardo en el localStorage y lo guardo en el estado global.        
+    
