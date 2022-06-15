@@ -1,18 +1,24 @@
 import React from "react";
 import { TodoItemUI } from "../TodoitemUI/TodoItemUI";
 
-const TodoItem = ( {todo} ) => {
+const TodoItem = ( {todo, todos, manageTodos} ) => {
 
-    const onCompleted= (event) => {
-        console.log(event.target)
-        console.log('Se quiere completar una tarea')
-        //Acá debería cambiar el estado de una tarea de completed, a uncompleted. Y viceversa.
-        //Maybe... Usar un hook
+    // repito código. Cada componente tiene lo mismo
+    const onCompleted= () => {
+        const index = todos.findIndex( item => item === todo )
+        const newArray = [...todos]
+        if (index !== -1){
+            newArray[index].isCompleted = !newArray[index].isCompleted
+            manageTodos('save', newArray)
+        }
     }
-    const onErased = (event) => {
-        console.log(event.target)
-        console.log('Se quiere borrar una tarea')
-        //Acá debería borrar una tarea del array. con un split funcionaría la cosa.
+    const onErased = () => {
+        const index = todos.findIndex( item => item === todo )
+        const newArray = [...todos]
+        if (index !== -1){
+            newArray.splice(index,1)
+            manageTodos('save', newArray)
+        }
     }
 
     return (

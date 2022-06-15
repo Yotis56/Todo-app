@@ -10,7 +10,7 @@ const useLocalStorage = () => {
       }, {
         id: 2,
         description: 'Sacar al perro',
-        isCompleted: true
+        isCompleted: false
       }]
     const changeData = (action, newItem = undefined) => {
         if (action === 'search'){
@@ -23,7 +23,7 @@ const useLocalStorage = () => {
             const parsedItem = JSON.stringify(newItem)
             localStorage.setItem('todos', parsedItem)
             setData(newItem)
-        }
+        } 
     }        
     return [data, changeData]
 }

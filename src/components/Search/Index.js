@@ -1,15 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import { Input } from "../Input/Index";
-const Search = () => {
-  const [search, setSearch] = useState('')
 
+
+const Search = ({ search, setSearch }) => {
+  
   const onChange = (event) => {
     setSearch(event.target.value)
   }
 
   const onSubmit = event => {
     event.preventDefault();
-
+    //realmente necesito un submit?
   }
 
   return (
