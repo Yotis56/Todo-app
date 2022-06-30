@@ -1,0 +1,16 @@
+* {
+    box-sizing: border-box;
+   
+}
+.app-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+.plus-icon {
+    width: 35px;
+    position: absolute;
+    right: 30px;
+    bottom: 50px;
+}

@@ -4,14 +4,18 @@ import { Header } from "./components/Header/Index";
 import { Search } from "./components/Search/Index";
 import { TodoList } from "./components/TodoList";
 import { TodoItem } from "./components/TodoItem";
+import { Modal } from "./components/Modal/Modal";
+import { NewTodo } from "./components/NewTodo/NewTodo";
 //hooks
 import { useLocalStorage } from './hooks/UseLocalStorage'
-
+//assets
+import plusIcon from './assets/plus-circle.svg'
+import './styles/App.css'
 function App() {
 
 const [todos, manageTodos] = useLocalStorage()  
 const [search, setSearch] = useState('')
-
+const [isOpenModal, setOpenModal] = useState(false)
 
 useEffect( () => {
   manageTodos('search')
@@ -29,14 +33,26 @@ useEffect( () => {
     </>
   )
 
+  const handleOpenModal = () => {
+    setOpenModal(true)
+  }
+
   return (
-    <>
-      <Header>
-        <Counter uncompletedTodos={uncompletedTodos} totalTodos={totalTodos}/>
-        <Search search={search} setSearch={setSearch} />
-      </Header>
-      <TodoList list={list}/>
-    </>
+      <div className="app-container">
+        <Header>
+          <Counter uncompletedTodos={uncompletedTodos} totalTodos={totalTodos}/>
+          <Search search={search} setSearch={setSearch} />
+        </Header>
+        <TodoList list={list}/>
+        <img alt="icono para añadir todos" className="plus-icon" src={plusIcon} onClick={handleOpenModal}/>
+  
+        { isOpenModal &&
+          <Modal setOpenModal={setOpenModal}>
+            <NewTodo setOpenModal={setOpenModal} />
+          </Modal>
+        }
+      </div>
+    
   )
 
 }
