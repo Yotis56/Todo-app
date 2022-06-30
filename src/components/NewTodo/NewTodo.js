@@ -1,5 +1,6 @@
 import React from "react";
 import closeIcon from '../../assets/x-circle.svg'
+import './NewTodo.css'
 
 const NewTodo = ({ setOpenModal }) => {
 

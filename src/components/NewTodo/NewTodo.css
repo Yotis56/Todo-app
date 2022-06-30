@@ -1,0 +1,11 @@
+.new-todo__container {
+    height: 80vh;
+    width: 70vw;
+    background-color: #fff;
+    position: absolute;
+}
+.new-todo__container img {
+    position: relative;
+    top: 0px;
+    right: 0px;
+}
