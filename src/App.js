@@ -48,7 +48,7 @@ useEffect( () => {
   
         { isOpenModal &&
           <Modal setOpenModal={setOpenModal}>
-            <NewTodo setOpenModal={setOpenModal} />
+            <NewTodo setOpenModal={setOpenModal} manageTodos={manageTodos} noOfTodos={todos.length}/>
           </Modal>
         }
       </div>

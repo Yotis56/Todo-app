@@ -20,10 +20,19 @@ const useLocalStorage = () => {
             }  
             setData(todos)
         } else if (action === 'save' && newItem){
-            const parsedItem = JSON.stringify(newItem)
-            localStorage.setItem('todos', parsedItem)
-            setData(newItem)
-        } 
+            if (Array.isArray(newItem)){
+                const parsedItem = JSON.stringify(newItem)
+                localStorage.setItem('todos', parsedItem)
+                setData(newItem)
+            } else {
+                const newData = data
+                newData.push(newItem)
+                const parsedItem = JSON.stringify(newData)
+                localStorage.setItem('todos', parsedItem)
+                setData(newData)
+            }
+
+        }
     }        
     return [data, changeData]
 }
