@@ -1,11 +1,18 @@
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+
 * {
     box-sizing: border-box;
-   
+    margin: 0;
+    padding: 0;
 }
 .app-container {
     position: relative;
     width: 100vw;
     height: 100vh;
+    background: rgb(54,56,137);
+    background: linear-gradient(128deg, rgba(54,56,137,1) 0%, rgba(80,113,139,1) 27%, rgba(27,238,151,1) 100%);
+    color: aliceblue;
+    font-family: sans-serif;
 }
 
 .plus-icon {

@@ -1,7 +1,6 @@
 import React from "react";
 import { Input } from "../Input/Index";
 
-
 const Search = ({ search, setSearch }) => {
   
   const onChange = (event) => {

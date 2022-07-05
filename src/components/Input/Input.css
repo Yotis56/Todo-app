@@ -1,0 +1,9 @@
+.input-container input {
+    margin: 0 auto 25px;
+    border-radius: 5px;
+    height: 30px;
+    width: 65%;
+}
+.input-container {
+    display: flex;
+}

@@ -1,3 +1,34 @@
 .todoItem--completed {
     text-decoration: line-through;
 }
+.todoItem__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px 0;
+    height: 55px;
+    border: 1px solid rgb(5, 22, 59);
+    border-radius: 4px;
+    background-color: #fff;
+    color: #000;
+}
+.todoItem__container p {
+    padding-left: 20px;
+    
+}
+.todoItem__icons{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 25%;
+    padding-right: 25px;
+}
+.todoItem__icons i{
+    font-size: 1.5em;
+}
+.completed-icon {
+    color: rgb(5, 150, 44);
+}
+.erase-icon {
+    color: rgb(208, 64, 64);
+}
