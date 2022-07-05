@@ -1,11 +1,13 @@
 import React from "react";
 import { TodoItemUI } from "../TodoitemUI/TodoItemUI";
 
-const TodoItem = ( {todo, todos, manageTodos} ) => {
+const TodoItem = ( { todoId, todos, manageTodos} ) => {
 
     // repito código. Cada componente tiene lo mismo
-    const onCompleted= () => {
-        const index = todos.findIndex( item => item === todo )
+    const selectedTodo = todos.find( todo => todo.id === todoId )
+
+    const onCompleted = () => {
+        const index = todos.findIndex( item => item === selectedTodo )
         const newArray = [...todos]
         if (index !== -1){
             newArray[index].isCompleted = !newArray[index].isCompleted
@@ -13,16 +15,16 @@ const TodoItem = ( {todo, todos, manageTodos} ) => {
         }
     }
     const onErased = () => {
-        const index = todos.findIndex( item => item === todo )
+        const index = todos.findIndex( item => item === selectedTodo )
         const newArray = [...todos]
         if (index !== -1){
             newArray.splice(index,1)
             manageTodos('save', newArray)
         }
     }
-
+    
     return (
-        <TodoItemUI onCompleted={onCompleted} onErased={onErased} todo={todo} />
+        <TodoItemUI onCompleted={onCompleted} onErased={onErased} todo={selectedTodo} />
           
     )
 }

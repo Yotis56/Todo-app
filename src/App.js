@@ -11,6 +11,7 @@ import { useLocalStorage } from './hooks/UseLocalStorage'
 //assets
 import plusIcon from './assets/plus-circle.svg'
 import './styles/App.css'
+
 function App() {
 
 const [todos, manageTodos] = useLocalStorage()  
@@ -28,7 +29,7 @@ useEffect( () => {
   const list = (
     <>
       { searchedTodos.map( todo =>          
-                <TodoItem key={todo.id} todo={todo} todos={todos} manageTodos={manageTodos} />    
+                <TodoItem key={todo.id} todoId={todo.id} todos={todos} manageTodos={manageTodos} />    
             )}
     </>
   )
