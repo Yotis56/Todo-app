@@ -26,14 +26,23 @@ useEffect( () => {
   const totalTodos = todos.length
   const searchedTodos = todos.filter( todo => todo.description.toLowerCase().includes(search.toLowerCase())  )
 
-  const list = (
-    <>
-      { searchedTodos.map( todo =>          
-                <TodoItem key={todo.id} todoId={todo.id} todos={todos} manageTodos={manageTodos} />    
-            )}
-    </>
-  )
 
+  const list = () => {
+    if (searchedTodos.length > 0 ) {
+      return (
+        <>
+          {searchedTodos.map( todo =>          
+            <TodoItem key={todo.id} todoId={todo.id} todos={todos} manageTodos={manageTodos} /> )
+          }
+        </>
+      )
+    } else if (totalTodos === 0) {
+      return <p className="warning-text">No tienes Todos. Empieza añadiendo uno</p>
+    } else {
+      return <p> No se encontraron resultados para {search}</p>
+    }
+  }
+ 
   const handleOpenModal = () => {
     setOpenModal(true)
   }

@@ -1,12 +1,51 @@
 .new-todo__container {
-    height: 80vh;
+    height: 40vh;
     width: 70vw;
-    background-color: #fff;
+    background: rgb(235,235,248);
+    background: radial-gradient(circle, rgba(235,235,248,1) 0%, rgba(223,196,207,1) 50%, rgba(222,195,255,1) 100%);
     color: #222;
-    position: absolute;
+    position: relative;
+    padding: 10px 25px;
 }
 .new-todo__container img {
-    position: relative;
-    top: 0px;
-    right: 0px;
+    position: absolute;
+    top: 5px;
+    right: 8px;
+    height: 25px;
+    cursor: pointer;
+}
+.new-todo__title {
+    margin: 10% auto 25px;
+    text-align: center;
+}
+.new-todo__input-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.new-todo__input-container input {
+    margin: 12px auto;
+    height: 30px;
+    width: 60%;
+    border-radius: 5px;
+    border: 1px solid #555;
+}
+.new-todo__input-container label {
+    font-size: 0.85em;
+    margin-right: auto;
+}
+
+@media screen and (max-width: 425px){
+    .new-todo__input-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-items: center;
+    } 
+    .new-todo__input-container input {
+        width: 100%;
+    }
+    .new-todo__input-container label{
+        margin: 0 auto;
+    }
 }

@@ -9,8 +9,8 @@
     position: relative;
     width: 100vw;
     height: 100vh;
-    background: rgb(54,56,137);
-    background: linear-gradient(128deg, rgba(54,56,137,1) 0%, rgba(80,113,139,1) 27%, rgba(27,238,151,1) 100%);
+    background: rgb(174,176,235);
+    background: linear-gradient(128deg, rgba(174,176,235,1) 0%, rgba(88,121,148,1) 39%, rgba(111,193,159,1) 100%);
     color: aliceblue;
     font-family: sans-serif;
 }
