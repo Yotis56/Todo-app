@@ -16,7 +16,7 @@ function App() {
 
 const [todos, manageTodos] = useLocalStorage()  
 const [search, setSearch] = useState('')
-const [isOpenModal, setOpenModal] = useState(false)
+const [isOpenModal, setOpenModal] = useState(true)
 
 useEffect( () => {
   manageTodos('search')

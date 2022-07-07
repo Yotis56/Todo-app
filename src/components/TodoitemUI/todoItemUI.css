@@ -14,20 +14,20 @@
 }
 .todoItem__container p {
     padding-left: 20px;
-    
+    flex: 1 1 200px;
 }
 .todoItem__icons{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 25%;
-    padding-right: 25px;
+    width: 15%;
 }
 .todoItem__icons i{
     font-size: 1.5em;
 }
 .completed-icon {
     color: rgb(5, 150, 44);
+    padding-left: 20px;
 }
 .erase-icon {
     color: rgb(208, 64, 64);
