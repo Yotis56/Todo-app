@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from "react";
-import { Counter } from "./components/Counter/Index";
-import { Header } from "./components/Header/Index";
-import { Search } from "./components/Search/Index";
-import { TodoList } from "./components/TodoList";
-import { TodoItem } from "./components/TodoItem";
-import { Modal } from "./components/Modal/Modal";
-import { NewTodo } from "./components/NewTodo/NewTodo";
+import { Counter } from "../components/Counter/Index";
+import { Header } from "../components/Header/Index";
+import { Search } from "../components/Search/Index";
+import { TodoList } from "../components/TodoList";
+import { TodoItem } from "../components/TodoItem";
+import { Modal } from "../components/Modal/Modal";
+import { NewTodo } from "../components/NewTodo/NewTodo";
 //hooks
-import { useLocalStorage } from './hooks/UseLocalStorage'
+import { useLocalStorage } from '../hooks/UseLocalStorage'
 //assets
-import plusIcon from './assets/plus-circle.svg'
-import './styles/App.css'
+import plusIcon from '../assets/plus-circle.svg'
+import '../styles/App.css'
 
-function App() {
+function Home() {
 
 const [todos, manageTodos] = useLocalStorage()  
 const [search, setSearch] = useState('')
@@ -67,4 +67,4 @@ useEffect( () => {
 
 }
 
-export default App;
+export default Home;
