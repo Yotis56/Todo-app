@@ -7,20 +7,21 @@
     align-items: center;
     margin: 15px 0;
     height: 55px;
+    padding-right: 10px;
     border: 1px solid rgb(5, 22, 59);
     border-radius: 4px;
     background-color: #fff;
     color: #000;
 }
 .todoItem__container p {
-    padding-left: 20px;
+    padding-left: 50px;
     flex: 1 1 200px;
 }
 .todoItem__icons{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 15%;
+    width: 7%;
 }
 .todoItem__icons i{
     font-size: 1.5em;

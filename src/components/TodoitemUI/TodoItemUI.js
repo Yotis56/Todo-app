@@ -1,16 +1,19 @@
 import React from "react";
+import { CompleteIcon } from "../TodoIcon/CompleteIcon";
+import { DeleteIcon } from "../TodoIcon/DeleteIcon";
+import { EditIcon } from "../TodoIcon/EditIcon";
 import './todoItemUI.css'
 
 
-const TodoItemUI = ({todo, onCompleted, onErased}) => {
+const TodoItemUI = ({todo, onCompleted, onErased, onEdit}) => {
     return (
         <>
             <li className="todoItem__container">
-                <i className={`completed-icon bi bi-check-circle${todo.isCompleted ? '-fill' : ''}`} alt="icono completar todo" onClick={onCompleted}></i>
+                <CompleteIcon completed={todo.isCompleted} onComplete={onCompleted}/>
                 <p className={  `${todo.isCompleted? 'todoItem--completed' : ''}`  }> {todo.description} </p>
                 <div className="todoItem__icons">
-                    
-                    <i className="erase-icon bi bi-trash" alt="icono borrar todo" onClick={onErased}></i>
+                <EditIcon onEdit={onEdit}/>
+                <DeleteIcon onDelete={onErased}/>
                 </div>
             </li>
         </>
@@ -18,3 +21,6 @@ const TodoItemUI = ({todo, onCompleted, onErased}) => {
 }
 
 export { TodoItemUI }
+
+{/* <i className={`completed-icon bi bi-check-circle${todo.isCompleted ? '-fill' : ''}`} alt="icono completar todo" onClick={onCompleted}></i> */}
+{/* <i className="erase-icon bi bi-trash" alt="icono borrar todo" onClick={onErased}></i> */}

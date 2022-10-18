@@ -16,7 +16,7 @@ function Home() {
 
 const [todos, manageTodos] = useLocalStorage()  
 const [search, setSearch] = useState('')
-const [isOpenModal, setOpenModal] = useState(true)
+const [isOpenModal, setOpenModal] = useState(false)
 
 useEffect( () => {
   manageTodos('search')
@@ -31,8 +31,8 @@ useEffect( () => {
     if (searchedTodos.length > 0 ) {
       return (
         <>
-          {searchedTodos.map( todo =>          
-            <TodoItem key={todo.id} todoId={todo.id} todos={todos} manageTodos={manageTodos} /> )
+          {searchedTodos.map( (todo, index) =>          
+            <TodoItem key={index} todoId={todo.id} todos={todos} manageTodos={manageTodos} /> )
           }
         </>
       )
