@@ -5,18 +5,20 @@ import { Search } from "../components/Search/Index";
 import { TodoList } from "../components/TodoList";
 import { TodoItem } from "../components/TodoItem";
 import { Modal } from "../components/Modal/Modal";
-import { NewTodo } from "../components/NewTodo/NewTodo";
+import { NewTodo } from "../components/NewTodo/AddTodo";
 //hooks
 import { useLocalStorage } from '../hooks/UseLocalStorage'
 //assets
 import plusIcon from '../assets/plus-circle.svg'
 import '../styles/App.css'
+import { useNavigate } from "react-router";
 
 function Home() {
 
 const { todos, todoFunctions } = useLocalStorage()  
 const [search, setSearch] = useState('')
-const [isOpenModal, setOpenModal] = useState(false)
+const navigate = useNavigate()
+// const [isOpenModal, setOpenModal] = useState(false)
 
 useEffect( () => {
   todoFunctions.searchTodos()
@@ -43,8 +45,8 @@ useEffect( () => {
     }
   }
  
-  const handleOpenModal = () => {
-    setOpenModal(true)
+  const handleAddTodo = () => {
+    navigate('/new', {state: { addTodo: todoFunctions.saveTodo}})
   }
 
   return (
@@ -54,12 +56,12 @@ useEffect( () => {
           <Search search={search} setSearch={setSearch} />
         </Header>
         <TodoList list={list}/>
-        <img alt="icono para añadir todos" className="plus-icon" src={plusIcon} onClick={handleOpenModal}/>
+        <img alt="icono para añadir todos" className="plus-icon" src={plusIcon} onClick={handleAddTodo}/>
   
-        { isOpenModal &&
+        { /*isOpenModal &&
           <Modal setOpenModal={setOpenModal}>
             <NewTodo setOpenModal={setOpenModal} manageTodos={todoFunctions.saveTodo} noOfTodos={todos.length}/>
-          </Modal>
+          </Modal> */
         }
       </div>
     
