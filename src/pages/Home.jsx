@@ -32,7 +32,7 @@ useEffect( () => {
       return (
         <>
           {searchedTodos.map( (todo, index) =>          
-            <TodoItem key={index} todo={todo} /> )
+            <TodoItem key={index} todo={todo} todoFunctions={todoFunctions}/> )
           }
         </>
       )

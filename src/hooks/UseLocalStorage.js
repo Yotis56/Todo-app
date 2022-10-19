@@ -1,8 +1,7 @@
 import { useState } from "react"
-
 const useLocalStorage = () => {
-
     const [todos, setTodos] = useState([])
+
     const testTodos = [{
         id: 1,
         description: 'Lavar la loza',
@@ -17,10 +16,10 @@ const useLocalStorage = () => {
             if (!persistentTodos){ 
                 saveTodo(testTodos) 
             }
-                setTodos(persistentTodos)
-            
+            setTodos(persistentTodos)
     }
-    const saveTodo = ( newItem ) => {
+    
+    const saveTodo =  newItem  => {
         if (Array.isArray(newItem)){
             const parsedItem = JSON.stringify(newItem)
             localStorage.setItem('todos', parsedItem)
@@ -35,11 +34,10 @@ const useLocalStorage = () => {
     }
     const onCompleted = (id) => {
         const index = todos.findIndex( todo => todo.id === id )
-        debugger
         const newArray = [...todos]
         if (index !== -1){
             newArray[index].isCompleted = !newArray[index].isCompleted
-            saveTodo('save', newArray)
+            saveTodo(newArray)
         }
     }
     const onDelete = (id) => {
@@ -47,7 +45,7 @@ const useLocalStorage = () => {
         const newArray = [...todos]
         if (index !== -1){
             newArray.splice(index,1)
-            saveTodo('save', newArray)
+            saveTodo(newArray)
         }
     }
     const onEdit = (id, newDescription) => {
