@@ -17,7 +17,7 @@ const NewTodo = ({ setOpenModal, manageTodos, noOfTodos }) => {
             description: newTodoDescription,
             isCompleted: false
         }
-        manageTodos('save', todoToAdd)
+        manageTodos(todoToAdd)
     }
     const [newTodoDescription, setNewTodoDescription] = useState('')
 

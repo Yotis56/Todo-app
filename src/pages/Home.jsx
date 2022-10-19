@@ -14,17 +14,17 @@ import '../styles/App.css'
 
 function Home() {
 
-const [todos, manageTodos] = useLocalStorage()  
+const { todos, todoFunctions } = useLocalStorage()  
 const [search, setSearch] = useState('')
 const [isOpenModal, setOpenModal] = useState(false)
 
 useEffect( () => {
-  manageTodos('search')
+  todoFunctions.searchTodos()
 }, [])
 
   const uncompletedTodos = todos? todos.filter((todo) => !todo.isCompleted).length : 0
-  const totalTodos = todos.length
-  const searchedTodos = todos.filter( todo => todo.description.toLowerCase().includes(search.toLowerCase())  )
+  const totalTodos = todos?.length
+  const searchedTodos = todos?.filter( todo => todo.description.toLowerCase().includes(search.toLowerCase())  )
 
 
   const list = () => {
@@ -32,7 +32,7 @@ useEffect( () => {
       return (
         <>
           {searchedTodos.map( (todo, index) =>          
-            <TodoItem key={index} todoId={todo.id} todos={todos} manageTodos={manageTodos} /> )
+            <TodoItem key={index} todo={todo} /> )
           }
         </>
       )
@@ -58,7 +58,7 @@ useEffect( () => {
   
         { isOpenModal &&
           <Modal setOpenModal={setOpenModal}>
-            <NewTodo setOpenModal={setOpenModal} manageTodos={manageTodos} noOfTodos={todos.length}/>
+            <NewTodo setOpenModal={setOpenModal} manageTodos={todoFunctions.saveTodo} noOfTodos={todos.length}/>
           </Modal>
         }
       </div>
