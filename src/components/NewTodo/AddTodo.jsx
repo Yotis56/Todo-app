@@ -1,23 +1,25 @@
 import React, {useState} from "react";
-import closeIcon from '../../assets/x-circle.svg'
+import { useNavigate } from "react-router";
 import './NewTodo.css'
 
-const AddTodo = ({ manageTodos, noOfTodos }) => {
+const AddTodo = ({ addNewTodo }) => {
 
     const [newTodoDescription, setNewTodoDescription] = useState('')
-    
+    const navigate = useNavigate()
+
     const handleChange = (e) => {
        setNewTodoDescription(e.target.value)       
     }
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
         //debería prevenir el comportamiento default de la forma?
         //esta función debería estar en el hook? que solo le mande la descripción y me arme el objeto?
+        e.preventDefault()
         const todoToAdd = {
-            id: noOfTodos + 1,
             description: newTodoDescription,
             isCompleted: false
         }
-        manageTodos(todoToAdd)
+        addNewTodo(todoToAdd)
+        navigate('/')
     }
 
     return (

@@ -4,8 +4,6 @@ import { Header } from "../components/Header/Index";
 import { Search } from "../components/Search/Index";
 import { TodoList } from "../components/TodoList";
 import { TodoItem } from "../components/TodoItem";
-import { Modal } from "../components/Modal/Modal";
-import { NewTodo } from "../components/NewTodo/AddTodo";
 //hooks
 import { useLocalStorage } from '../hooks/UseLocalStorage'
 //assets
@@ -46,7 +44,7 @@ useEffect( () => {
   }
  
   const handleAddTodo = () => {
-    navigate('/new', {state: { addTodo: todoFunctions.saveTodo}})
+    navigate('/new', { state: { addNewTodo: todoFunctions.saveTodo}})
   }
 
   return (

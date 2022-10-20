@@ -25,8 +25,12 @@ const useLocalStorage = () => {
             localStorage.setItem('todos', parsedItem)
             setTodos(newItem)
         } else {
+            const newTodo = {
+                ...newItem,
+                id: todos.length + 1
+            }
             const newData = todos
-            newData.push(newItem)
+            newData.push(newTodo)
             const parsedItem = JSON.stringify(newData)
             localStorage.setItem('todos', parsedItem)
             setTodos(newData)

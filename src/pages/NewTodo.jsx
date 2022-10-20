@@ -1,9 +1,11 @@
 import React from "react";
+import { useLocation } from "react-router";
 import { AddTodo } from "../components/NewTodo/AddTodo";
 
-const NewTodo = (props) => {
+const NewTodo = () => {
+    const location = useLocation()
     return(
-        <AddTodo manageTodos={props.AddTodo}/>
+        <AddTodo addNewTodo={location.state.addNewTodo}/>
     )
 }
 
