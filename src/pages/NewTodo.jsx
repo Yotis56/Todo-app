@@ -5,7 +5,7 @@ import { AddTodo } from "../components/NewTodo/AddTodo";
 const NewTodo = () => {
     const location = useLocation()
     return(
-        <AddTodo addNewTodo={location.state.addNewTodo}/>
+        <AddTodo submitAction={location.state.addNewTodo} label='Añade un nuevo ToDo'/>
     )
 }
 

@@ -53,13 +53,12 @@ const useLocalStorage = () => {
         }
     }
     const onEdit = (id, newDescription) => {
-        console.log(`Edit todo No. ${id}, new desription: ${newDescription}` )
-        // const index = todos.findIndex( todo => todo.id === id )
-        // const newArray = [...todos]
-        // if (index!== -1){
-        //     newArray[index].description = newDescription
-        //     saveTodo('save', newArray)
-        // }
+        const index = todos.findIndex( todo => todo.id === id )
+        const newArray = [...todos]
+        if (index!== -1){
+            newArray[index].description = newDescription
+            saveTodo(newArray)
+        }
     }
     const todoFunctions = {
         searchTodos,

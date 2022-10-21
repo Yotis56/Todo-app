@@ -46,6 +46,7 @@ useEffect( () => {
   const handleAddTodo = () => {
     navigate('/new', { state: { addNewTodo: todoFunctions.saveTodo}})
   }
+  
 
   return (
       <div className="app-container">
