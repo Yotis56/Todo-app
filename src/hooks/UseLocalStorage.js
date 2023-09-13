@@ -15,8 +15,9 @@ const useLocalStorage = () => {
         const persistentTodos = JSON.parse(localStorage.getItem('todos'))
             if (!persistentTodos){ 
                 saveTodo(testTodos) 
+            } else {
+                setTodos(persistentTodos)
             }
-            setTodos(persistentTodos)
     }
     
     const saveTodo =  newItem  => {
