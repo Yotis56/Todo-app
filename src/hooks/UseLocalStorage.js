@@ -13,11 +13,11 @@ const useLocalStorage = () => {
       }]
     const searchTodos = () => {
         const persistentTodos = JSON.parse(localStorage.getItem('todos'))
-            if (!persistentTodos){ 
-                saveTodo(testTodos) 
-            } else {
-                setTodos(persistentTodos)
-            }
+        if (!persistentTodos){ 
+            saveTodo(testTodos) 
+        } else {
+            setTodos(persistentTodos)
+        }
     }
     
     const saveTodo =  newItem  => {
