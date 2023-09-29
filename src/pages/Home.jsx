@@ -9,11 +9,11 @@ import { NewTodo } from "../components/NewTodo/NewTodo";
 //hooks
 import { useLocalStorage } from '../hooks/UseLocalStorage'
 //assets
-import plusIcon from '../assets/plus-circle.svg'
+import PlusIcon from '../assets/plus-circle.svg'
 import '../styles/App.css'
 
 function Home() {
-
+  
 const { todos, todoFunctions } = useLocalStorage()  
 const [search, setSearch] = useState('')
 const [isOpenModal, setOpenModal] = useState(false)
@@ -54,8 +54,12 @@ useEffect( () => {
           <Search search={search} setSearch={setSearch} />
         </Header>
         <TodoList list={list}/>
-        <img alt="icono para añadir todos" className="plus-icon" src={plusIcon} onClick={handleOpenModal}/>
-  
+
+        {/* <img alt="icono para añadir todos" className="plus-icon" src={plusIcon} onClick={handleOpenModal}/> */}
+
+        <span className='Icon-container'>
+          <PlusIcon alt="icono para añadir todos" className="Icon-svg plus-icon" onClick={handleOpenModal}/>
+        </span> 
         { isOpenModal &&
           <Modal setOpenModal={setOpenModal}>
             <NewTodo setOpenModal={setOpenModal} manageTodos={todoFunctions.saveTodo} noOfTodos={todos.length}/>

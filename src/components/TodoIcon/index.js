@@ -1,7 +1,7 @@
 import React from "react";
-import { ReactComponent as CheckSVG } from './check.svg'
-import { ReactComponent as EditSVG } from './edit.svg'
-import { ReactComponent as DeleteSvg } from './delete.svg'
+import CheckSVG  from './check.svg'
+import EditSVG  from './edit.svg'
+import DeleteSvg from './delete.svg'
 import './todoIcon.css'
 
 const iconTypes = {
