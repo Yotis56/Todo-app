@@ -68,6 +68,21 @@
     padding-left: 50px;
     flex: 1 1 200px;
 }
+.edit__container {
+    margin-left: 55px;
+    width: 100%;
+    display: flex;
+    justify-content:space-between;
+}
+.edit__container input {
+    width: 80%;
+    height: 30px;
+    padding-left: 20px;
+}
+.edit__container button {
+    width: 15%;
+    cursor: pointer;
+}
 .todoItem__icons{
     display: flex;
     align-items: center;
