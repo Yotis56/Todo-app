@@ -20,13 +20,14 @@ const useLocalStorage = () => {
         }
     }
     
-    const saveTodo =  newItem  => {
+    const saveTodo =  async (newItem)  => {
         if (Array.isArray(newItem)){
+            const newData = [...newItem]
             const parsedItem = JSON.stringify(newItem)
             localStorage.setItem('todos', parsedItem)
-            setTodos(newItem)
+            await setTodos(newData)
         } else {
-            const newData = todos
+            const newData = [...todos]
             newData.push(newItem)
             const parsedItem = JSON.stringify(newData)
             localStorage.setItem('todos', parsedItem)
@@ -50,13 +51,12 @@ const useLocalStorage = () => {
         }
     }
     const onEdit = (id, newDescription) => {
-        console.log(`Edit todo No. ${id}, new desription: ${newDescription}` )
-        // const index = todos.findIndex( todo => todo.id === id )
-        // const newArray = [...todos]
-        // if (index!== -1){
-        //     newArray[index].description = newDescription
-        //     saveTodo('save', newArray)
-        // }
+        const index = todos.findIndex( todo => todo.id === id )
+        const newArray = [...todos]
+        if (index!== -1){
+            newArray[index].description = newDescription
+            saveTodo(newArray)
+        }
     }
     const todoFunctions = {
         searchTodos,
