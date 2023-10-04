@@ -24,7 +24,7 @@ const NewTodo = ({ setOpenModal, manageTodos, noOfTodos }) => {
     return (
         <div className="new-todo__container">
             <h4 className="new-todo__title">Añade un ToDo</h4>
-            <img src={closeIcon} className='close-icon' alt="" onClick={handleCloseModal} />
+            <closeIcon className='close-icon' alt="" onClick={handleCloseModal} />
             <form className='new-todo__form' onSubmit={handleSubmit}>
                 <div className="new-todo__input-container">
                     <label htmlFor="description">Descripción del TODO</label>
