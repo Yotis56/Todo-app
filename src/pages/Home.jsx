@@ -3,7 +3,7 @@ import { Counter } from "../components/Counter/Index";
 import { Header } from "../components/Header/Index";
 import { Search } from "../components/Search/Index";
 import { TodoList } from "../components/TodoList";
-import { TodoItem } from "../components/TodoItem";
+import { TodoItem } from "../components/TodoItem/TodoItem";
 import { Modal } from "../components/Modal/Modal";
 import { NewTodo } from "../components/NewTodo/NewTodo";
 import { AppContext } from "../context/AppContext";
@@ -33,7 +33,7 @@ useEffect( () => {
       return (
         <>
           {searchedTodos.map( (todo, index) =>          
-            <TodoItem key={index} todo={todo} todoFunctions={todoFunctions}/> )
+            <TodoItem key={index} todo={todo} /> )
           }
         </>
       )
@@ -56,14 +56,12 @@ useEffect( () => {
         </Header>
         <TodoList list={list}/>
 
-        {/* <img alt="icono para añadir todos" className="plus-icon" src={plusIcon} onClick={handleOpenModal}/> */}
-
         <span className='Icon-container'>
           <PlusIcon alt="icono para añadir todos" className="Icon-svg plus-icon" onClick={handleOpenModal}/>
         </span> 
         { isOpenModal &&
           <Modal setOpenModal={setOpenModal}>
-            <NewTodo setOpenModal={setOpenModal} manageTodos={todoFunctions.saveTodo} noOfTodos={todos.length}/>
+            <NewTodo setOpenModal={setOpenModal} noOfTodos={todos.length}/>
           </Modal>
         }
       </div>

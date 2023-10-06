@@ -14,7 +14,6 @@ const useInitialState = () => {
     const [todos, setState] = useState(testTodos)
 
     const searchTodos = () => {
-        debugger
         const persistentTodos = JSON.parse(localStorage.getItem('todos'))
         if (!persistentTodos) {
             saveTodo({newItem: testTodos})
@@ -42,7 +41,7 @@ const useInitialState = () => {
         const newData = [...todos]
         if (index !== -1){
             newData[index].isCompleted = !newData[index].isCompleted
-            saveTodo(newArray)
+            saveTodo({newItem: newData})
         }
     }
 
@@ -51,7 +50,7 @@ const useInitialState = () => {
         const newArray = [...todos]
         if (index !== -1){
             newArray.splice(index,1)
-            saveTodo(newArray)
+            saveTodo({newItem: newArray})
         }
     }
     
@@ -60,7 +59,7 @@ const useInitialState = () => {
         const newArray = [...todos]
         if (index!== -1){
             newArray[index].description = payload.newDescription
-            saveTodo(newArray)
+            saveTodo({newItem: newArray})
         }
     }
 

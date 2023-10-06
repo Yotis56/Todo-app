@@ -1,9 +1,13 @@
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import CloseIcon from '../../assets/x-circle.svg'
 import './NewTodo.css'
+import { AppContext } from "../../context/AppContext";
 
-const NewTodo = ({ setOpenModal, manageTodos, noOfTodos }) => {
+const NewTodo = ({ setOpenModal, noOfTodos }) => {
 
+    const { todoFunctions } = useContext(AppContext)
+    const [newTodoDescription, setNewTodoDescription] = useState('')
+    
     const handleCloseModal = () => {
         setOpenModal(false)
     }
@@ -12,15 +16,14 @@ const NewTodo = ({ setOpenModal, manageTodos, noOfTodos }) => {
     }
     const handleSubmit = (e) => {
         e.preventDefault()
-        const todoToAdd = {
+        const newItem = {
             id: noOfTodos + 1,
             description: newTodoDescription,
             isCompleted: false
         }
-        manageTodos(todoToAdd)
+        todoFunctions.saveTodo({newItem})
         setOpenModal(false)
     }
-    const [newTodoDescription, setNewTodoDescription] = useState('')
 
     return (
         <div className="new-todo__container">
