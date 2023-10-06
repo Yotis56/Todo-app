@@ -3,7 +3,7 @@ import CloseIcon from '../../assets/x-circle.svg'
 import './NewTodo.css'
 import { AppContext } from "../../context/AppContext";
 
-const NewTodo = ({ setOpenModal, noOfTodos }) => {
+const NewTodo = ({ setOpenModal }) => {
 
     const { todoFunctions } = useContext(AppContext)
     const [newTodoDescription, setNewTodoDescription] = useState('')
@@ -16,8 +16,8 @@ const NewTodo = ({ setOpenModal, noOfTodos }) => {
     }
     const handleSubmit = (e) => {
         e.preventDefault()
+        
         const newItem = {
-            id: noOfTodos + 1,
             description: newTodoDescription,
             isCompleted: false
         }

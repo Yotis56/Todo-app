@@ -32,8 +32,8 @@ useEffect( () => {
     if (searchedTodos.length > 0 ) {
       return (
         <>
-          {searchedTodos.map( (todo, index) =>          
-            <TodoItem key={index} todo={todo} /> )
+          {searchedTodos.map( (todo) =>          
+            <TodoItem key={todo.id} todo={todo} /> )
           }
         </>
       )
@@ -61,7 +61,7 @@ useEffect( () => {
         </span> 
         { isOpenModal &&
           <Modal setOpenModal={setOpenModal}>
-            <NewTodo setOpenModal={setOpenModal} noOfTodos={todos.length}/>
+            <NewTodo setOpenModal={setOpenModal} />
           </Modal>
         }
       </div>

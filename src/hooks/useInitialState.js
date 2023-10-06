@@ -22,6 +22,16 @@ const useInitialState = () => {
         }
     }
 
+    const maxId = () => {
+        let maxId = 0
+        todos.forEach( todo => {
+            if (todo.id > maxId) {
+                maxId = todo.id
+            }
+        })
+        return maxId
+    }
+
     const saveTodo = payload => {
         if (Array.isArray(payload.newItem)){
             const parsedItem = JSON.stringify(payload.newItem)
@@ -29,6 +39,7 @@ const useInitialState = () => {
             setState(payload.newItem)
         } else {
             const newData = [...todos]
+            payload.newItem.id = maxId() + 1
             newData.push(payload.newItem)
             const parsedItem = JSON.stringify(newData)
             localStorage.setItem('todos', parsedItem)
